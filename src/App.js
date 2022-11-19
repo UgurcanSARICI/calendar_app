@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
 
-function App() {
+const App = () => {
+  const tileDisabled = ({ activeStartDate, date, view }) => {
+    return date < new Date();
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Calendar
+        tileDisabled={tileDisabled}
+        minDate={new Date()}
+        maxDate={new Date(2023, 10, 19)}
+        showDoubleView={true}
+        selectRange={true}
+      />
+      {}
     </div>
   );
-}
+};
 
 export default App;
